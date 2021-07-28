@@ -10,11 +10,15 @@ class Jogo:
 
 @app.route('/inicio')
 def ola():
-    jogo1 = Jogo('AC Origins', 'RPJ', 'Xbox One and Playstation 4')
+    jogo1 = Jogo('AC Origins', 'RPG', 'Xbox One and Playstation 4')
     jogo2 = Jogo('Halo', 'FPS', 'Xbox One')
     jogo3 = Jogo('God of War', 'Ação', 'Playstation 4')
-    lista = [jogo1.nome, jogo2.nome, jogo3.nome]
-    return render_template('lista.html', titulo='Jogos', jogos=lista)
+    lista = [jogo1, jogo2, jogo3]
+    return render_template('lista.html', titulo='jogos', jogos=lista)
+
+@app.route('/novo')
+def novo():
+    return render_template('novo.html', titulo='Novo Jogo')
 
 #app.run(host='0.0.0.0', port=8080)
 app.run()
